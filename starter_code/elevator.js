@@ -1,19 +1,33 @@
 class Elevator {
   constructor(){
-    this.floor      = 0;
-    this.MAXFLOOR   = 10;
-    this.requests   = [];
+    this.floor      = 0
+    this.MAXFLOOR   = 10
+    this.requests   = []
+    this.direction  = 'up'
+    this.intervalId
   }
 
-  start() { }
-  stop() { }
-  update() { }
+  start() {
+    this.intervalId = setInterval(() => this.update(), 1000)
+  }
+
+  stop() {
+    setTimeout(()=> clearInterval(this.intervalId), 5000)
+  }
+
+  update() {
+    this.log()
+  }
+
   _passengersEnter() { }
   _passengersLeave() { }
   floorUp() { }
   floorDown() { }
   call() { }
-  log() { }
+
+  log() {
+    console.log(`Direction: ${this.direction} | Floor: ${this.floor}`)
+  }
 }
 
-module.exports = Elevator;
+module.exports = Elevator
