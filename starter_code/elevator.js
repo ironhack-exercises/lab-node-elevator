@@ -30,7 +30,9 @@ class Elevator {
     if(this.floor > 0) this.floor--
   }
 
-  call() { }
+  call(person) {
+    this.requests.push(person)
+  }
 
   log() {
     console.log(`Direction: ${this.direction} | Floor: ${this.floor}`)
